@@ -20,8 +20,8 @@ const AwesomeCounter = ({ initialValue }) => {
   return (
     <div>
       <h1> Awesome Counter</h1>
-      <span>{count}</span>
       <button onClick={add}>Add</button>
+      <span>{count}</span>
       <button onClick={remove}> Remove</button>
     </div>
   );

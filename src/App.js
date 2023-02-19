@@ -4,7 +4,7 @@ import AwesomeCounter from "./components/AwesomeCounter";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <AwesomeCounter />
     </div>
   );
