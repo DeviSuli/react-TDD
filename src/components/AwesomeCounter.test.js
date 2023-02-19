@@ -36,13 +36,44 @@ test("should increase the value correctly when add is clicked twice", () => {
 });
 
 test("should decrease the value correctly when remove is clicked once", () => {
-  throw new Error();
+  render(<AwesomeCounter initialValue={3} />);
+  const RemoveButton = screen.getByText("Remove");
+  act(() => {
+    userEvent.click(RemoveButton);
+  });
+  const count = screen.getByText(2);
+  expect(count).toBeVisible();
 });
 
 test("should decrease the value correctly when remove is clicked twice", () => {
-  throw new Error();
+  render(<AwesomeCounter initialValue={3} />);
+  const RemoveButton = screen.getByText("Remove");
+  act(() => {
+    userEvent.click(RemoveButton);
+    userEvent.click(RemoveButton);
+  });
+  const count = screen.getByText(1);
+  expect(count).toBeVisible();
 });
 
 test("should not allow a negative number when the initial value is 0 and remove is clicked", () => {
-  throw new Error();
+  render(<AwesomeCounter initialValue={0} />);
+  const RemoveButton = screen.getByText("Remove");
+  act(() => {
+    userEvent.click(RemoveButton);
+  });
+  const count = screen.getByText(0);
+  expect(count).toBeVisible();
+});
+test("should not allow a negative number when the initial value is 2 and remove is clicked 4 times", () => {
+  render(<AwesomeCounter initialValue={2} />);
+  const RemoveButton = screen.getByText("Remove");
+  act(() => {
+    userEvent.click(RemoveButton);
+    userEvent.click(RemoveButton);
+    userEvent.click(RemoveButton);
+    userEvent.click(RemoveButton);
+  });
+  const count = screen.getByText(0);
+  expect(count).toBeVisible();
 });
